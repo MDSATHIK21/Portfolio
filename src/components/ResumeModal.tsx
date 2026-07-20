@@ -12,7 +12,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     const resumeText = `
 MOHAMMED SATHIK
 Software Engineer & AI Developer
-Email: mohammedsathik000@gmail.com | Phone: +91 76049 00883
+Email: mohammedsathik000@gmail.com | Phone: +91 76049 00883 | GitHub: https://github.com/MDSATHIK21
 
 SUMMARY
 Passionate final-year Computer Science Engineering student with expertise in Artificial Intelligence, Software Engineering, Flutter Development, and building impactful real-world solutions.

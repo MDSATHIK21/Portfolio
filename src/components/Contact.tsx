@@ -29,8 +29,8 @@ const contacts = [
   {
     icon: <Github size={20} />,
     label: "GitHub",
-    value: "github.com/mohammedsathik",
-    href: "https://github.com/mohammedsathik",
+    value: "github.com/MDSATHIK21",
+    href: "https://github.com/MDSATHIK21",
     target: "_blank"
   }
 ];
