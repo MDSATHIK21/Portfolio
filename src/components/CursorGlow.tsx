@@ -10,7 +10,9 @@ export const CursorGlow: React.FC = () => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         if (glowRef.current) {
-          glowRef.current.style.background = `radial-gradient(500px circle at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.06), transparent 40%)`;
+          const isDark = document.documentElement.classList.contains('dark');
+          const glowColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(59,130,246,0.07)';
+          glowRef.current.style.background = `radial-gradient(500px circle at ${e.clientX}px ${e.clientY}px, ${glowColor}, transparent 40%)`;
         }
       });
     };
@@ -29,3 +31,4 @@ export const CursorGlow: React.FC = () => {
     />
   );
 };
+

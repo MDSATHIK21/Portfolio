@@ -5,7 +5,7 @@ export const Loader: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Smooth 1.2s entrance splash animation when opening website
+    // Smooth entrance splash animation when opening website
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1500);
@@ -48,13 +48,13 @@ export const Loader: React.FC = () => {
     <AnimatePresence>
       {loading && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#FAFAFA] dark:bg-[#050505] transition-colors duration-500"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
-          <div className="overflow-hidden flex text-6xl md:text-8xl font-black text-white tracking-tighter">
+          <div className="overflow-hidden flex text-6xl md:text-8xl font-black text-slate-900 dark:text-white tracking-tighter">
             {text.split('').map((char, index) => (
               <motion.span key={index} variants={letterVariants}>
                 {char}
@@ -66,3 +66,4 @@ export const Loader: React.FC = () => {
     </AnimatePresence>
   );
 };
+

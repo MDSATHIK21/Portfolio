@@ -4,7 +4,27 @@
 
 @layer base {
   :root {
+    color-scheme: light dark;
+    --bg-color: #fafafa;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --card-bg: #ffffff;
+    --border-color: #e5e7eb;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.08);
+  }
+
+  html.dark {
     color-scheme: dark;
+    --bg-color: #050505;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --card-bg: #111111;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(24, 24, 27, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
   }
 
   html {
@@ -12,12 +32,21 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
 
   body {
-    background-color: #050505;
-    color: #fafafa;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  /* Smooth color transition on interactive elements */
+  *, *::before, *::after {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
   }
 
   /* Fast, sleek scrollbar */
@@ -28,10 +57,16 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(150, 150, 150, 0.25);
     border-radius: 3px;
   }
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+  }
   ::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.4);
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.3);
   }
 }
@@ -39,33 +74,47 @@
 @layer components {
   /* High-performance hardware-accelerated Glassmorphism */
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
     transform: translateZ(0);
     will-change: transform;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .dark .glass {
+    box-shadow: none;
   }
 
   .glass-hover {
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
   }
   .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  }
+  .dark .glass-hover:hover {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   }
 
   /* Outlined stroke text */
   .text-outline {
+    -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.12);
+    color: transparent;
+  }
+  .dark .text-outline {
     -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
     color: transparent;
   }
 
   /* Fast magnetic button */
   .btn-magnetic {
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s ease, color 0.5s ease;
   }
   .btn-magnetic:hover {
     transform: scale(1.03);
@@ -78,6 +127,12 @@
 @layer utilities {
   /* Gradient text utility */
   .text-gradient-white {
+    background: linear-gradient(180deg, #111111 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .dark .text-gradient-white {
     background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.6) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -88,6 +143,11 @@
   .section-divider {
     width: 100%;
     height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+    transition: background 0.5s ease;
+  }
+  .dark .section-divider {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
   }
 }
+

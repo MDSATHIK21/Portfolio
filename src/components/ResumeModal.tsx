@@ -71,7 +71,7 @@ Tamil (Native) | English (Fluent)
           onClick={onClose}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/85 backdrop-blur-xl" />
+          <div className="absolute inset-0 bg-slate-900/40 dark:bg-black/85 backdrop-blur-xl" />
 
           {/* Modal */}
           <motion.div
@@ -80,67 +80,67 @@ Tamil (Native) | English (Fluent)
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto glass rounded-3xl p-8 border border-white/10"
+            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white dark:bg-[#111111] glass rounded-3xl p-8 border border-slate-200/80 dark:border-white/10 text-slate-900 dark:text-white"
           >
             {/* Close */}
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-white/40 hover:text-white transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Header */}
-            <div className="flex items-center gap-3 mb-8 pb-6 border-b border-white/10">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                <FileText className="w-5 h-5 text-white/60" />
+            <div className="flex items-center gap-3 mb-8 pb-6 border-b border-slate-200/80 dark:border-white/10">
+              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-center">
+                <FileText className="w-5 h-5 text-slate-600 dark:text-white/60" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">Resume</h3>
-                <p className="text-xs text-white/40">Mohammed Sathik — Software Engineer</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Resume</h3>
+                <p className="text-xs text-slate-500 dark:text-white/40">Mohammed Sathik — Software Engineer</p>
               </div>
             </div>
 
             {/* Content */}
             <div className="space-y-5">
-              <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5">
-                <h4 className="text-lg font-bold mb-1">Mohammed Sathik</h4>
-                <p className="text-sm text-white/40 mb-3">Software Engineer & AI Developer</p>
-                <p className="text-xs text-white/30 leading-relaxed">
+              <div className="p-5 rounded-2xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
+                <h4 className="text-lg font-bold mb-1 text-slate-900 dark:text-white">Mohammed Sathik</h4>
+                <p className="text-sm text-slate-500 dark:text-white/40 mb-3">Software Engineer & AI Developer</p>
+                <p className="text-xs text-slate-600 dark:text-white/30 leading-relaxed">
                   Final-year CS Engineering student passionate about AI, Flutter, and building impactful solutions.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-2">
+                <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-white/60 mb-2">
                     <GraduationCap className="w-3.5 h-3.5" />
                     Education
                   </div>
-                  <div className="text-xs text-white/40 space-y-1">
-                    <div className="text-white/70 font-medium">BE Computer Science Engineering</div>
+                  <div className="text-xs text-slate-500 dark:text-white/40 space-y-1">
+                    <div className="text-slate-800 dark:text-white/70 font-medium">BE Computer Science Engineering</div>
                     <div>CSI College of Engineering • CGPA 7.87</div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-2">
+                <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-white/60 mb-2">
                     <Code className="w-3.5 h-3.5" />
                     Projects
                   </div>
-                  <div className="text-xs text-white/40 space-y-1">
-                    <div className="text-white/70 font-medium">ClassBot (Ongoing)</div>
+                  <div className="text-xs text-slate-500 dark:text-white/40 space-y-1">
+                    <div className="text-slate-800 dark:text-white/70 font-medium">ClassBot (Ongoing)</div>
                     <div>Smart Unified Education Platform (FYP)</div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5">
-                <div className="flex items-center gap-2 text-xs font-bold text-white/60 mb-2">
+              <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-white/60 mb-2">
                   <Award className="w-3.5 h-3.5" />
                   Certifications
                 </div>
-                <ul className="text-xs text-white/40 space-y-1 list-disc list-inside">
+                <ul className="text-xs text-slate-500 dark:text-white/40 space-y-1 list-disc list-inside">
                   <li>Oracle Cloud Infrastructure Foundations Associate</li>
                   <li>Ethical Hacking & Vulnerability Assessment</li>
                   <li>Salesforce Training</li>
@@ -150,13 +150,13 @@ Tamil (Native) | English (Fluent)
             </div>
 
             {/* Actions */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-              <button onClick={onClose} className="text-xs text-white/30 hover:text-white/60 transition-colors">
+            <div className="mt-8 pt-6 border-t border-slate-200/80 dark:border-white/10 flex items-center justify-between">
+              <button onClick={onClose} className="text-xs text-slate-500 dark:text-white/30 hover:text-slate-800 dark:hover:text-white/60 transition-colors">
                 Close
               </button>
               <button
                 onClick={handleDownload}
-                className="btn-magnetic flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-white/90 transition-colors"
+                className="btn-magnetic flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-black font-semibold text-sm hover:bg-slate-800 dark:hover:bg-white/90 transition-colors"
               >
                 <Download className="w-4 h-4" />
                 Download Resume
@@ -168,3 +168,4 @@ Tamil (Native) | English (Fluent)
     </AnimatePresence>
   );
 };
+

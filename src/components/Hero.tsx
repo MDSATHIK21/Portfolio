@@ -27,12 +27,15 @@ const pills = [
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#050505] pt-24 pb-16 lg:pt-0 lg:pb-0">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#FAFAFA] dark:bg-[#050505] transition-colors duration-500 pt-24 pb-16 lg:pt-0 lg:pb-0">
+      {/* Background Radial Glow & Gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/60 via-transparent to-purple-100/40 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20 pointer-events-none transition-all duration-500" />
+
       {/* Floating Blur Circles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute w-[350px] h-[350px] rounded-full bg-white/[0.04] blur-[100px] animate-float" style={{ top: '10%', left: '10%' }} />
-        <div className="absolute w-[250px] h-[250px] rounded-full bg-white/[0.03] blur-[80px] animate-float-slow" style={{ bottom: '20%', right: '10%' }} />
-        <div className="absolute w-[200px] h-[200px] rounded-full bg-white/[0.05] blur-[60px] animate-float-delayed" style={{ top: '50%', left: '60%' }} />
+        <div className="absolute w-[350px] h-[350px] rounded-full bg-blue-400/10 dark:bg-white/[0.04] blur-[100px] animate-float transition-colors duration-500" style={{ top: '10%', left: '10%' }} />
+        <div className="absolute w-[250px] h-[250px] rounded-full bg-purple-400/10 dark:bg-white/[0.03] blur-[80px] animate-float-slow transition-colors duration-500" style={{ bottom: '20%', right: '10%' }} />
+        <div className="absolute w-[200px] h-[200px] rounded-full bg-indigo-400/10 dark:bg-white/[0.05] blur-[60px] animate-float-delayed transition-colors duration-500" style={{ top: '50%', left: '60%' }} />
       </div>
 
       {/* Main Split Layout */}
@@ -48,7 +51,7 @@ export const Hero: React.FC = () => {
           >
             {/* Greeting Pill */}
             <motion.div variants={itemVariants} className="mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-white/10 text-sm font-medium text-white/80">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-slate-300/60 dark:border-white/10 text-sm font-medium text-slate-800 dark:text-white/80">
                 <span>👋</span> Hi, I'm
               </div>
             </motion.div>
@@ -56,7 +59,7 @@ export const Hero: React.FC = () => {
             {/* Name */}
             <motion.h2
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6"
+              className="text-2xl md:text-3xl font-semibold text-slate-900 dark:text-white tracking-tight mb-6"
             >
               Mohammed Sathik
             </motion.h2>
@@ -64,13 +67,13 @@ export const Hero: React.FC = () => {
             {/* HUGE Display Text */}
             <motion.div variants={itemVariants} className="mb-8 overflow-visible">
               <h1
-                className="font-black text-white uppercase leading-none"
+                className="font-black uppercase leading-none"
                 style={{
                   letterSpacing: '-0.04em',
                   lineHeight: 0.9,
                 }}
               >
-                <div className="block text-[clamp(2.8rem,5.8vw,6.8rem)]">Software</div>
+                <div className="block text-slate-900 dark:text-white text-[clamp(2.8rem,5.8vw,6.8rem)]">Software</div>
                 <div className="block text-gradient-white mt-1 text-[clamp(2.2rem,4.6vw,5.4rem)] whitespace-nowrap">Engineering</div>
               </h1>
             </motion.div>
@@ -83,7 +86,7 @@ export const Hero: React.FC = () => {
               {pills.map((pill, i) => (
                 <div
                   key={i}
-                  className="px-4 py-2 rounded-full glass border border-white/10 text-xs font-medium text-white/70 hover:text-white hover:border-white/20 transition-all duration-300 cursor-default"
+                  className="px-4 py-2 rounded-full glass border border-slate-300/60 dark:border-white/10 text-xs font-medium text-slate-700 dark:text-white/70 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-white/20 transition-all duration-300 cursor-default"
                 >
                   {pill}
                 </div>
@@ -93,7 +96,7 @@ export const Hero: React.FC = () => {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-white/40 text-base md:text-lg max-w-xl leading-relaxed"
+              className="text-slate-600 dark:text-white/40 text-base md:text-lg max-w-xl leading-relaxed"
             >
               Final Year Computer Science Engineering Student passionate about
               Artificial Intelligence, Software Engineering, Flutter
@@ -110,7 +113,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Glow circle behind avatar */}
-            <div className="absolute w-[70%] aspect-square rounded-full bg-white/[0.04] blur-[80px] animate-pulse-soft z-0" />
+            <div className="absolute w-[70%] aspect-square rounded-full bg-blue-500/10 dark:bg-white/[0.04] blur-[80px] animate-pulse-soft z-0" />
 
             {/* "AI Developer" outlined text behind avatar */}
             <div className="absolute inset-0 flex items-center justify-center z-[5] pointer-events-none select-none overflow-hidden">
@@ -120,7 +123,6 @@ export const Hero: React.FC = () => {
                   fontSize: 'clamp(3rem, 10vw, 10rem)',
                   letterSpacing: '-0.02em',
                   lineHeight: 1,
-                  WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.1)',
                   color: 'transparent',
                 }}
               >
@@ -140,7 +142,6 @@ export const Hero: React.FC = () => {
                 className="w-full h-auto object-contain drop-shadow-2xl"
                 style={{
                   maxHeight: '65vh',
-                  filter: 'drop-shadow(0 20px 60px rgba(255,255,255,0.07))',
                   maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
                   WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
                 }}
@@ -153,3 +154,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
